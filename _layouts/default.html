@@ -1,30 +1,41 @@
-<style>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    
+    <style>
+        /* =========================================
+           1. Grund-Layout & Navigation
+           ========================================= */
         body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-        nav { border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+        nav { border-bottom: 2px solid #ccc; padding-bottom: 15px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
         .nav-links a { margin-right: 15px; color: #0056b3; text-decoration: none; font-weight: bold; }
         .site-footer { margin-top: 50px; font-size: 0.8em; color: #666; border-top: 1px solid #ccc; padding-top: 10px; }
         
-        /* Sprach-Text Standardmäßig verstecken */
+        /* =========================================
+           2. Logik: Sprachen verstecken / anzeigen
+           ========================================= */
         .lang-en { display: none; }
         body.show-en .lang-de { display: none; }
         body.show-en .lang-en { display: block; }
 
         /* =========================================
-           NEUES DESIGN: Pill-Toggle Schalter
+           3. Design: Pill-Toggle Schalter
            ========================================= */
         .lang-toggle {
             position: relative;
-            width: 140px; /* Etwas breiter für den Text */
-            height: 46px;
-            background-color: #2c2c2c; /* Dunkelgrauer Hintergrund wie im Bild */
+            width: 140px; 
+            height: 44px;
+            background-color: #2c2c2c; /* Dunkelgrauer Hintergrund */
             border-radius: 30px;
             border: 3px solid #00e676; /* Neongrüner Rand */
             display: flex;
             align-items: center;
             cursor: pointer;
             user-select: none;
-            overflow: hidden; /* Hält den Schieber im Rahmen */
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Leichter Schatten für Tiefe */
+            overflow: hidden; 
         }
 
         /* Der grüne Schieber im Hintergrund */
@@ -34,9 +45,9 @@
             left: 0;
             width: 50%;
             height: 100%;
-            background-color: #00e676; /* Das Neongrün */
+            background-color: #00e676; /* Neongrün */
             border-radius: 25px;
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Weiche, fließende Animation */
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 1;
         }
 
@@ -51,16 +62,40 @@
             text-align: center;
             z-index: 2; /* Liegt ÜBER dem Schieber */
             font-weight: bold;
-            font-size: 15px;
-            letter-spacing: 0.5px;
-            transition: color 0.4s ease; /* Weicher Farbwechsel */
+            font-size: 14px;
+            transition: color 0.4s ease; 
         }
 
-        /* Farben der Beschriftung anpassen (dunkel auf grün, grün auf dunkel) */
-        .lang-text-de { color: #1a1a1a; } /* Dunkler Text auf dem grünen Schieber (Standard: DE) */
-        .lang-text-en { color: #00e676; } /* Grüner Text auf dem dunklen Hintergrund (Standard: EN) */
+        /* Farben der Beschriftung (dunkel auf grün, grün auf dunkel) */
+        .lang-text-de { color: #1a1a1a; } 
+        .lang-text-en { color: #00e676; } 
 
-        /* Beschriftungs-Farben wechseln, wenn der Schieber auf EN steht */
-        body.show-en .lang-text-de { color: #00e676; } /* DE wird grün */
-        body.show-en .lang-text-en { color: #1a1a1a; } /* EN wird dunkel */
+        /* Farben wechseln, wenn der Schieber auf EN steht */
+        body.show-en .lang-text-de { color: #00e676; }
+        body.show-en .lang-text-en { color: #1a1a1a; }
     </style>
+
+    <script>
+      MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <a href="/">Startseite</a>
+            <a href="#">Über mich</a>
+        </div>
+        
+        <div class="lang-toggle" onclick="toggleLanguage()">
+            <div class="lang-toggle-bg"></div>
+            <span class="lang-text lang-text-de">DE</span>
+            <span class="lang-text lang-text-en">EN</span>
+        </div>
+    </nav>
+
+    <main>
+        {{
