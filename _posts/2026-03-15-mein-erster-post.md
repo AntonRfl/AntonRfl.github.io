@@ -1,6 +1,7 @@
 ---
 layout: default
-title: "Hallo Welt: Wie und warum ich diesen Blog gestartet habe 🚀"
+title: "Hallo Welt!"
+permalink: /hallo-welt/
 ---
 
 Willkommen auf meiner neuen Webseite! Das hier ist mein allererster Beitrag.
