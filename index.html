@@ -1,0 +1,17 @@
+---
+layout: default
+title: AntonRfl - Startseite
+---
+
+<h1>Willkommen auf meinem Profil! 🚀</h1>
+<p>Hallo, ich bin Anton. Hier präsentiere ich meine Arbeit und schreibe über Dinge, die mich interessieren.</p>
+
+<h2>Meine neuesten Blog-Artikel</h2>
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> 
+      - <small>{{ post.date | date: "%d.%m.%Y" }}</small>
+    </li>
+  {% endfor %}
+</ul>
