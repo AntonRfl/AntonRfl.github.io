@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+        nav { border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 30px; }
+        nav a { margin-right: 15px; color: #0056b3; text-decoration: none; font-weight: bold; }
+        .site-footer { margin-top: 50px; font-size: 0.8em; color: #666; border-top: 1px solid #ccc; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Startseite</a>
+        <a href="#">Über mich</a>
+    </nav>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 AntonRfl. Erstellt mit eigenem HTML & Jekyll.</p>
+    </footer>
+
+</body>
+</html>
