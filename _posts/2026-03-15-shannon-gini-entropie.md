@@ -4,6 +4,36 @@ title: "Data Science: Shannon-Entropie und Gini-Unreinheit"
 permalink: /shannon-gini-entropie/
 ---
 
+<div class="lang-de" markdown="1">
+# Data Science Basics: Shannon-Entropie und Gini-Unreinheit
+
+Das Lernen mit Entscheidungsbäumen ist ein wichtiges Verfahren. [cite_start]Die Grundidee besteht darin, aus Daten Wissen zu erzeugen und dieses als Baumgraph darzustellen[cite: 2, 5]. 
+
+[cite_start]Die Entropie $H$ ist ein Maß für die Unsicherheit[cite: 223]. [cite_start]Bei absoluter Gleichverteilung benötigen wir $x=\log_{2}(n)$ Bits[cite: 183, 189].
+
+Die Formel lautet:
+[cite_start]$$H(\vec{p}) = -\sum_{i=1}^{n} p_i \log_2(p_i)$$ [cite: 224]
+
+Und hier die Gini-Unreinheit am Knoten $k$:
+[cite_start]$$G_{k} = 1 - \sum_{i=1}^{n} p_{k,i}^2$$ [cite: 234, 235]
+</div>
+
+
+<div class="lang-en" markdown="1">
+# Data Science Basics: Shannon Entropy and Gini Impurity
+
+Learning with decision trees is an important method. [cite_start]The basic idea is to generate knowledge from data and represent it as a tree graph[cite: 2, 5].
+
+[cite_start]Entropy $H$ is a measure of uncertainty[cite: 223]. [cite_start]With an absolute uniform distribution we need $x=\log_{2}(n)$ bits[cite: 183, 189].
+
+The formula is:
+[cite_start]$$H(\vec{p}) = -\sum_{i=1}^{n} p_i \log_2(p_i)$$ [cite: 224]
+
+And here is the Gini Impurity at node $k$:
+[cite_start]$$G_{k} = 1 - \sum_{i=1}^{n} p_{k,i}^2$$ [cite: 234, 235]
+</div>
+
+
 # Data Science Basics: Shannon-Entropie und Gini-Unreinheit
 
 Das Lernen mit Entscheidungsbäumen ist ein für die Künstliche Intelligenz wichtiges und gleichzeitig einfaches Verfahren. Einer der vielen Vorzüge von Entscheidungsbäumen ist, dass sie sehr wenig Vorbereitung der Daten erfordern. Insbesondere ist keinerlei Skalierung oder Zentrierung von Merkmalen notwendig. Die Grundidee besteht darin, aus Daten Wissen zu erzeugen. In diesem Fall jedoch nicht als Funktion, sondern als Baumgraph. Dies verhilft zu einem größeren Verständnis und einer besseren Interpretierbarkeit der Ergebnisse.
