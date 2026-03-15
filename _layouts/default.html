@@ -10,14 +10,63 @@
         .nav-links a { margin-right: 15px; color: #0056b3; text-decoration: none; font-weight: bold; }
         .site-footer { margin-top: 50px; font-size: 0.8em; color: #666; border-top: 1px solid #ccc; padding-top: 10px; }
         
-        /* Sprach-Schalter Button Design */
-        #lang-toggle { cursor: pointer; padding: 5px 10px; background: #eee; border: 1px solid #ccc; border-radius: 5px; font-weight: bold;}
-        
-        /* Standardmäßig Englisch verstecken */
+        /* Sprach-Text Standardmäßig verstecken */
         .lang-en { display: none; }
-        /* Wenn der Body die Klasse 'show-en' hat, Deutsch verstecken und Englisch zeigen */
         body.show-en .lang-de { display: none; }
         body.show-en .lang-en { display: block; }
+
+        /* =========================================
+           NEUES DESIGN: Der Toggle-Schalter
+           ========================================= */
+        .lang-toggle {
+            position: relative;
+            width: 130px;
+            height: 42px;
+            background-color: #333; /* Dunkelgrauer Hintergrund */
+            border-radius: 25px;
+            border: 2px solid #00E676; /* Neongrüner Rand */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            overflow: hidden; /* Hält den Schieber im Rahmen */
+        }
+
+        /* Der grüne Schieber im Hintergrund */
+        .lang-toggle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #00E676;
+            border-radius: 20px;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1;
+        }
+
+        /* Wenn Englisch aktiv ist, schiebt sich der Hintergrund nach rechts */
+        body.show-en .lang-toggle-bg {
+            transform: translateX(100%);
+        }
+
+        /* Die Beschriftung (DE / EN) */
+        .lang-text {
+            flex: 1;
+            text-align: center;
+            z-index: 2; /* Liegt ÜBER dem Schieber */
+            font-weight: bold;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        /* Farben der Beschriftung anpassen (dunkel auf grün, grün auf dunkel) */
+        .lang-text-de { color: #222; }
+        .lang-text-en { color: #00E676; }
+
+        /* Beschriftungs-Farben wechseln, wenn der Schieber auf EN steht */
+        body.show-en .lang-text-de { color: #00E676; }
+        body.show-en .lang-text-en { color: #222; }
     </style>
 
     <script>
@@ -34,7 +83,12 @@
             <a href="/">Startseite</a>
             <a href="#">Über mich</a>
         </div>
-        <button id="lang-toggle" onclick="toggleLanguage()">🌐 DE / EN</button>
+        
+        <div class="lang-toggle" onclick="toggleLanguage()">
+            <div class="lang-toggle-bg"></div>
+            <span class="lang-text lang-text-de">DE</span>
+            <span class="lang-text lang-text-en">EN</span>
+        </div>
     </nav>
 
     <main>
@@ -47,17 +101,13 @@
 
     <script>
         function toggleLanguage() {
-            // Body-Klasse umschalten
             document.body.classList.toggle('show-en');
-            // Die Wahl des Nutzers im Browser speichern, damit sie beim nächsten Klick erhalten bleibt
             if (document.body.classList.contains('show-en')) {
                 localStorage.setItem('preferredLang', 'en');
             } else {
                 localStorage.setItem('preferredLang', 'de');
             }
         }
-
-        // Beim Laden der Seite prüfen, ob der Nutzer vorher schon EN gewählt hat
         if (localStorage.getItem('preferredLang') === 'en') {
             document.body.classList.add('show-en');
         }
