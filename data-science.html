@@ -1,0 +1,34 @@
+---
+layout: default
+title: "Data Science"
+permalink: /data-science/
+---
+
+<div class="lang-de" markdown="1">
+# Data Science
+Hier findest du alle meine Artikel, Projekte und Notizen zum Thema Data Science und Machine Learning.
+
+### Alle Beiträge:
+<ul>
+  {% for post in site.categories['data-science'] %}
+    <li>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+</div>
+
+
+<div class="lang-en" markdown="1">
+# Data Science
+Here you can find all my articles, projects, and notes on Data Science and Machine Learning.
+
+### All posts:
+<ul>
+  {% for post in site.categories['data-science'] %}
+    <li>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+</div>
