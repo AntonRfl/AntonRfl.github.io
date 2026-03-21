@@ -2,10 +2,11 @@
 layout: default
 title: "Data Science: Shannon-Entropie und Gini-Unreinheit"
 permalink: /shannon-gini-entropie/
+category: data-science
 ---
 
 <div class="lang-de" markdown="1">
-# Data Science Basics: Shannon-Entropie und Gini-Unreinheit
+# Data Science: Shannon-Entropie und Gini-Unreinheit
 
 Das Lernen mit Entscheidungsbäumen ist ein für die Künstliche Intelligenz wichtiges und gleichzeitig einfaches Verfahren. Einer der vielen Vorzüge von Entscheidungsbäumen ist, dass sie sehr wenig Vorbereitung der Daten erfordern. Insbesondere ist keinerlei Skalierung oder Zentrierung von Merkmalen notwendig. Die Grundidee besteht darin, aus Daten Wissen zu erzeugen. In diesem Fall jedoch nicht als Funktion, sondern als Baumgraph. Dies verhilft zu einem größeren Verständnis und einer besseren Interpretierbarkeit der Ergebnisse.
 
@@ -73,7 +74,7 @@ $$J(i,t_{i})=\frac{m_{links}}{m}G_{links}+\frac{m_{rechts}}{m}G_{rechts}$$
 
 
 <div class="lang-en" markdown="1">
-# Data Science Basics: Shannon Entropy and Gini Impurity
+# Data Science: Shannon Entropy and Gini Impurity
 
 Learning with decision trees is an important and simultaneously simple method in Artificial Intelligence. One of the many advantages of decision trees is that they require very little data preparation. In particular, no scaling or centering of features is necessary. The basic idea is to generate knowledge from data. In this case, however, not as a function, but as a tree graph. This helps to achieve greater understanding and better interpretability of the results.
 
