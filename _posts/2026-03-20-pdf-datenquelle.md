@@ -2,7 +2,7 @@
 layout: default
 title: "PDFs als Eingriffspunkt: Dokumente mit Python auslesen"
 permalink: /pdf-datenquelle/
-category: data-science
+category: it-security
 ---
 
 <div class="lang-de" markdown="1">
