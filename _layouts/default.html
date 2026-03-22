@@ -7,14 +7,14 @@
     
     <style>
         /* =========================================
-           1. Grund-Layout (Modern Deep-Space Theme)
+           1. Grund-Layout (Tiefer Hintergrund)
            ========================================= */
         body { 
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            /* Ein schicker, dezenter Hintergrund-Farbverlauf (Tiefes Blau-Grau) */
-            background: linear-gradient(135deg, #14161a 0%, #22262e 100%);
+            /* Sehr dunkler, fast schwarzer Hintergrund, damit die helleren Boxen knallen */
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
             background-attachment: fixed;
-            color: #d8dee9; /* Weiches Off-White, perfekt lesbar */
+            color: #e6edf3; /* Sehr klares, helles Grau für beste Lesbarkeit */
             max-width: 900px; 
             margin: 0 auto; 
             padding: 30px 20px; 
@@ -27,22 +27,23 @@
         a:hover { color: #00e676; }
 
         /* =========================================
-           2. Header / Navigation (Karten-Design mit Farbakzent)
+           2. Header / Navigation (Hellere Karten)
            ========================================= */
         nav { 
-            background: #1e2229; /* Etwas heller als der Hintergrund */
+            background: #21262d; /* Deutlich heller als der Hintergrund (Schiefergrau) */
             padding: 20px 30px; 
             border-radius: 12px;
             margin-bottom: 40px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4); /* Weicher 3D-Schatten */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); /* Kräftigerer Schatten für 3D-Effekt */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Feine helle Kante zur Abgrenzung */
             position: relative;
-            overflow: hidden; /* Wichtig für die bunte Linie oben */
+            overflow: hidden;
         }
 
-        /* Der bunte Farbverlauf als Akzent-Linie am oberen Rand der Navigation */
+        /* Der bunte Farbverlauf als Akzent-Linie am oberen Rand */
         nav::before {
             content: '';
             position: absolute;
@@ -62,21 +63,21 @@
         .nav-links a:hover { color: #ffffff; }
 
         /* =========================================
-           3. Content / Hauptbereich (Ebenfalls als Karte)
+           3. Content / Hauptbereich (Ebenfalls heller)
            ========================================= */
         main {
-            background: #1e2229;
+            background: #21262d; /* Gleiches helleres Schiefergrau wie die Navigation */
             padding: 40px 50px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.03); /* Ganz feiner Rand für Kontrast */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Feine helle Kante */
         }
 
-        /* Code-Blöcke optisch abheben */
-        pre { background-color: #15181e; padding: 20px; border-radius: 8px; overflow-x: auto; border: 1px solid #2c313a; }
-        code { font-family: 'Courier New', Courier, monospace; color: #98c379; }
+        /* Code-Blöcke optisch abheben (wieder etwas dunkler für Kontrast) */
+        pre { background-color: #0d1117; padding: 20px; border-radius: 8px; overflow-x: auto; border: 1px solid #30363d; }
+        code { font-family: 'Courier New', Courier, monospace; color: #7ee787; }
 
-        .site-footer { margin-top: 50px; font-size: 0.85em; color: #666; text-align: center; }
+        .site-footer { margin-top: 50px; font-size: 0.85em; color: #8b949e; text-align: center; }
         
         /* =========================================
            4. Logik: Sprachen verstecken / anzeigen
@@ -86,7 +87,7 @@
         body.show-en .lang-en { display: block; }
 
         /* =========================================
-           5. Design: Dein originaler Toggle-Button!
+           5. Design: Dein originaler Toggle-Button (Unverändert)
            ========================================= */
         .lang-toggle {
             position: relative;
@@ -100,7 +101,7 @@
             cursor: pointer;
             user-select: none;
             overflow: hidden; 
-            box-shadow: 0 4px 10px rgba(0, 230, 118, 0.2); /* Ein leichter grüner Glow für den Button */
+            box-shadow: 0 4px 10px rgba(0, 230, 118, 0.2); 
         }
 
         .lang-toggle-bg {
