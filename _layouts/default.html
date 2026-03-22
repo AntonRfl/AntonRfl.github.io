@@ -43,13 +43,22 @@
             overflow: hidden;
         }
 
-        /* Der bunte Farbverlauf als Akzent-Linie am oberen Rand */
+        /* Der bunte, ANIMIERTE Farbverlauf am oberen Rand */
         nav::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #00e676, #00b0ff, #b388ff);
+            /* Der Verlauf wird wiederholt, damit die Schleife nahtlos ist */
+            background: linear-gradient(90deg, #00e676, #00b0ff, #b388ff, #00e676);
+            background-size: 300% 100%; /* Den Hintergrund künstlich in die Breite ziehen */
+            animation: gradientMove 6s linear infinite; /* 6 Sekunden Dauer, Endlosschleife */
+        }
+
+        /* Die Anleitung für die Bewegung */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         .nav-links a { 
