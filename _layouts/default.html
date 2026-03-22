@@ -7,85 +7,76 @@
     
     <style>
         /* =========================================
-           1. Grund-Layout (Modern Deep-Gradient)
+           1. Grund-Layout (Modern Deep-Space Theme)
            ========================================= */
         body { 
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            /* Ein tiefer, bläulich-grauer Farbverlauf als Hintergrund */
-            background: linear-gradient(135deg, #0f1115 0%, #1e222b 100%);
-            background-attachment: fixed; /* Hintergrund bleibt beim Scrollen stehen */
-            color: #d1d5db; /* Angenehmes, weiches Hellgrau für den Text */
+            /* Ein schicker, dezenter Hintergrund-Farbverlauf (Tiefes Blau-Grau) */
+            background: linear-gradient(135deg, #14161a 0%, #22262e 100%);
+            background-attachment: fixed;
+            color: #d8dee9; /* Weiches Off-White, perfekt lesbar */
             max-width: 900px; 
             margin: 0 auto; 
-            padding: 20px; 
+            padding: 30px 20px; 
             line-height: 1.8; 
         }
 
-        /* Der Textbereich als schicke, abgesetzte Karte */
-        main {
-            background-color: rgba(30, 33, 40, 0.7); /* Leicht durchsichtig */
-            backdrop-filter: blur(10px); /* Milchglas-Effekt */
-            padding: 40px 50px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 30px;
-        }
-
-        /* Überschriften stylen */
-        h1, h2, h3, h4 { color: #f3f4f6; font-weight: 700; }
-        
-        /* Die Hauptüberschrift bekommt einen Farbverlauf */
-        h1 {
-            background: linear-gradient(90deg, #00e676, #00e5ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 30px;
-            font-size: 2.2em;
-        }
-
-        a { color: #00e5ff; text-decoration: none; transition: all 0.2s ease-in-out; }
-        a:hover { color: #00e676; text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); }
+        /* Überschriften & Links */
+        h1, h2, h3, h4 { color: #ffffff; letter-spacing: 0.5px; }
+        a { color: #00b0ff; text-decoration: none; transition: all 0.2s ease; }
+        a:hover { color: #00e676; }
 
         /* =========================================
-           2. Stylische Navigation (Header)
+           2. Header / Navigation (Karten-Design mit Farbakzent)
            ========================================= */
         nav { 
-            background: linear-gradient(90deg, rgba(25, 28, 35, 0.9) 0%, rgba(15, 17, 21, 0.9) 100%);
-            backdrop-filter: blur(10px);
+            background: #1e2229; /* Etwas heller als der Hintergrund */
             padding: 20px 30px; 
-            border-radius: 16px;
-            margin-top: 10px; 
+            border-radius: 12px;
+            margin-bottom: 40px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            border-bottom: 3px solid #00e676; /* Der neongrüne Akzentstreifen */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4); /* Weicher 3D-Schatten */
+            position: relative;
+            overflow: hidden; /* Wichtig für die bunte Linie oben */
         }
+
+        /* Der bunte Farbverlauf als Akzent-Linie am oberen Rand der Navigation */
+        nav::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00e676, #00b0ff, #b388ff);
+        }
+
         .nav-links a { 
             margin-right: 25px; 
-            color: #9ca3af; 
-            font-weight: 600; 
+            color: #abb2bf; 
+            font-weight: 700; 
             text-transform: uppercase;
             font-size: 14px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
-        .nav-links a:hover { color: #ffffff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+        .nav-links a:hover { color: #ffffff; }
 
         /* =========================================
-           3. Code-Blöcke & Footer
+           3. Content / Hauptbereich (Ebenfalls als Karte)
            ========================================= */
-        pre { 
-            background-color: #0d0f12; 
-            padding: 20px; 
-            border-radius: 10px; 
-            overflow-x: auto; 
-            border: 1px solid #2d3139; 
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+        main {
+            background: #1e2229;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.03); /* Ganz feiner Rand für Kontrast */
         }
-        code { font-family: 'Fira Code', 'Courier New', Courier, monospace; color: #69f0ae; }
 
-        .site-footer { margin-top: 60px; font-size: 0.85em; color: #6b7280; text-align: center; padding-bottom: 20px;}
+        /* Code-Blöcke optisch abheben */
+        pre { background-color: #15181e; padding: 20px; border-radius: 8px; overflow-x: auto; border: 1px solid #2c313a; }
+        code { font-family: 'Courier New', Courier, monospace; color: #98c379; }
+
+        .site-footer { margin-top: 50px; font-size: 0.85em; color: #666; text-align: center; }
         
         /* =========================================
            4. Logik: Sprachen verstecken / anzeigen
@@ -95,7 +86,7 @@
         body.show-en .lang-en { display: block; }
 
         /* =========================================
-           5. Dein Button (Unverändert übernommen)
+           5. Design: Dein originaler Toggle-Button!
            ========================================= */
         .lang-toggle {
             position: relative;
@@ -109,6 +100,7 @@
             cursor: pointer;
             user-select: none;
             overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0, 230, 118, 0.2); /* Ein leichter grüner Glow für den Button */
         }
 
         .lang-toggle-bg {
@@ -134,11 +126,11 @@
             transition: color 0.3s ease; 
         }
 
-        .lang-text-de { color: #111; } 
-        .lang-text-en { color: #00e676; } 
+        .lang-text-de { color: #2b2b2b; }
+        .lang-text-en { color: #00e676; }
 
         body.show-en .lang-text-de { color: #00e676; }
-        body.show-en .lang-text-en { color: #111; }
+        body.show-en .lang-text-en { color: #2b2b2b; }
     </style>
 
     {% raw %}
