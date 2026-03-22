@@ -6,64 +6,110 @@
     <title>{{ page.title }}</title>
     
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-        nav { border-bottom: 2px solid #ccc; padding-bottom: 15px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-links a { margin-right: 15px; color: #0056b3; text-decoration: none; font-weight: bold; }
-        .site-footer { margin-top: 50px; font-size: 0.8em; color: #666; border-top: 1px solid #ccc; padding-top: 10px; }
+        /* =========================================
+           1. Grund-Layout (Modern Dark Mode)
+           ========================================= */
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #2b2b2b; /* Das dunkle Grau aus deinem Bild */
+            color: #e0e0e0; /* Helles Grau für den Text, strengt die Augen nicht an */
+            max-width: 850px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            line-height: 1.7; 
+        }
+
+        /* Überschriften und Links anpassen */
+        h1, h2, h3, h4 { color: #ffffff; }
+        a { color: #00e676; text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #69f0ae; text-decoration: underline; }
+
+        /* Navigation modernisieren */
+        nav { 
+            background-color: #1f1f1f; 
+            padding: 20px 30px; 
+            border-radius: 12px;
+            margin-bottom: 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .nav-links a { 
+            margin-right: 20px; 
+            color: #e0e0e0; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .nav-links a:hover { color: #00e676; text-decoration: none; }
+
+        /* Code-Blöcke für den Dark Mode anpassen */
+        pre { background-color: #1a1a1a; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid #444; }
+        code { font-family: 'Courier New', Courier, monospace; color: #00e676; }
+
+        .site-footer { margin-top: 60px; font-size: 0.85em; color: #888; border-top: 1px solid #444; padding-top: 20px; text-align: center; }
         
+        /* =========================================
+           2. Logik: Sprachen verstecken / anzeigen
+           ========================================= */
         .lang-en { display: none; }
         body.show-en .lang-de { display: none; }
         body.show-en .lang-en { display: block; }
 
-        /* iOS-Style Toggle */
-        .ios-toggle {
+        /* =========================================
+           3. Design: Dein "Speed/Quality" Toggle (DE/EN)
+           ========================================= */
+        .lang-toggle {
             position: relative;
-            width: 90px;
-            height: 40px;
-            background-color: #d8d8d8;
-            border-radius: 40px;
-            border: 2px solid #5a5f73;
-            cursor: pointer;
+            width: 160px; 
+            height: 48px;
+            background-color: #2b2b2b; /* Dunkler Hintergrund im Schalter */
+            border-radius: 30px;
+            border: 3px solid #00e676; /* Der markante Neongrüne Rand */
             display: flex;
             align-items: center;
-            transition: background-color 0.3s;
-            box-sizing: border-box;
+            cursor: pointer;
+            user-select: none;
+            overflow: hidden; 
         }
 
-        .ios-toggle::after {
-            content: '';
+        /* Der grüne Schieber im Hintergrund */
+        .lang-toggle-bg {
             position: absolute;
-            top: 2px;
-            left: 3px;
-            width: 32px;
-            height: 32px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            border: 1px solid #5a5f73;
-            box-sizing: border-box;
-            transition: transform 0.3s;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #00e676; /* Neongrün */
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1;
         }
 
-        .ios-toggle::before {
-            content: 'DE';
-            position: absolute;
-            right: 15px;
+        /* Wenn Englisch aktiv ist, schiebt sich der Hintergrund nach rechts */
+        body.show-en .lang-toggle-bg {
+            transform: translateX(100%);
+        }
+
+        /* Die Beschriftung (DE / EN) */
+        .lang-text {
+            flex: 1;
+            text-align: center;
+            z-index: 2; /* Liegt ÜBER dem Schieber */
             font-weight: bold;
             font-size: 16px;
-            color: #0b1426;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease; 
         }
 
-        body.show-en .ios-toggle {
-            background-color: #b7efc5;
-        }
-        body.show-en .ios-toggle::after {
-            transform: translateX(48px);
-        }
-        body.show-en .ios-toggle::before {
-            content: 'EN';
-            left: 15px;
-            right: auto;
-        }
+        /* Standardzustand (DE aktiv) */
+        .lang-text-de { color: #2b2b2b; } /* Dunkler Text auf grünem Grund */
+        .lang-text-en { color: #00e676; } /* Grüner Text auf dunklem Grund */
+
+        /* Farben wechseln, wenn der Schieber auf EN steht */
+        body.show-en .lang-text-de { color: #00e676; }
+        body.show-en .lang-text-en { color: #2b2b2b; }
     </style>
 
     {% raw %}
@@ -83,10 +129,13 @@
             <a href="/software-engineering/">Software Engineering</a>
             <a href="/it-security/">IT Security</a>
             <a href="/data-science/">Data Science</a>
-            <a href="#">Über mich</a>
         </div>
         
-        <div class="ios-toggle" onclick="toggleLanguage()"></div>
+        <div class="lang-toggle" onclick="toggleLanguage()">
+            <div class="lang-toggle-bg"></div>
+            <span class="lang-text lang-text-de">DE</span>
+            <span class="lang-text lang-text-en">EN</span>
+        </div>
     </nav>
 
     <main>
