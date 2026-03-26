@@ -202,7 +202,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
-
+<div class="cursor-glow"></div>
     <nav>
         <div class="nav-links">
             <a href="/">Startseite</a>
@@ -253,6 +253,17 @@
         if (localStorage.getItem('preferredLang') === 'en') {
             document.body.classList.add('show-en');
         }
+    
+    // Den Cursor-Glow an die Maus heften
+        document.addEventListener('mousemove', function(e) {
+            const glow = document.querySelector('.cursor-glow');
+            if (glow) {
+                // Gibt die exakten X und Y Koordinaten der Maus an das CSS weiter
+                glow.style.setProperty('--mouse-x', e.clientX + 'px');
+                glow.style.setProperty('--mouse-y', e.clientY + 'px');
+            }
+        });
+    
     </script>
 
 </body>
