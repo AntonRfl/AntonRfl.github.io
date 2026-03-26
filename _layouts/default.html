@@ -127,7 +127,7 @@
         body.show-en .lang-en { display: block; }
 
         /* =========================================
-           5. Design: Dein originaler Toggle-Button (Unverändert)
+           5. Design: Toggle-Button (Unverändert)
            ========================================= */
         .lang-toggle {
             position: relative;
@@ -172,6 +172,24 @@
 
         body.show-en .lang-text-de { color: #00e676; }
         body.show-en .lang-text-en { color: #2b2b2b; }
+    
+        /* =========================================
+           Spotlight Cursor-Glow
+            ========================================= */
+        .cursor-glow {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none; /* Sehr wichtig: Klicks gehen durch das Licht hindurch */
+            z-index: 9999; /* Liegt über dem Text */
+            /* Der Verlauf nutzt CSS-Variablen, die wir per JavaScript füttern */
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), 
+                rgba(0, 230, 118, 0.05), /* Das sanfte Neongrün */
+                transparent 40%
+            );
+        }
+    
     </style>
 
     {% raw %}
