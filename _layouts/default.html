@@ -11,14 +11,32 @@
            ========================================= */
         body { 
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            /* Sehr dunkler, fast schwarzer Hintergrund, damit die helleren Boxen knallen */
+            /* Hier liegt nur noch der saubere, dunkle Farbverlauf */
             background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
             background-attachment: fixed;
-            color: #e6edf3; /* Sehr klares, helles Grau für beste Lesbarkeit */
+            color: #e6edf3; 
             max-width: 900px; 
             margin: 0 auto; 
             padding: 30px 20px; 
             line-height: 1.8; 
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; 
+            width: 100vw; height: 100vh;
+            z-index: -1; 
+            pointer-events: none; 
+            
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            
+            /* NEU: Die Maske, die das Gitter nach außen hin weich ausblendet */
+            -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+            mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
         }
 
         /* Überschriften & Links */
