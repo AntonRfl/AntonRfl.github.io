@@ -75,11 +75,20 @@
            3. Content / Hauptbereich (Ebenfalls heller)
            ========================================= */
         main {
-            background: #21262d; /* Gleiches helleres Schiefergrau wie die Navigation */
+            background-color: #21262d; /* Deine dunkle Grundfarbe */
+            
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, #1e2229 1px, transparent 1px);
+            
+            background-size: 16px 16px;
+            background-position: 0 0;
+            
             padding: 40px 50px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Feine helle Kante */
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            position: relative; 
         }
 
         /* Code-Blöcke optisch abheben (wieder etwas dunkler für Kontrast) */
