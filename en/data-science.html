@@ -18,22 +18,4 @@ lang: en
     </div>
     {% endif %}
   {% endfor %}
-</div>---
-layout: default
-title: "Data Science"
-lang: en
-permalink: /en/data-science/
----
-
-<h1>Data Science</h1>
-<p>Here you can find all my articles, projects, and notes on Data Science and Machine Learning.</p>
-
-<div class="post-list">
-  {% for post in site.categories['data-science'] %}
-  <div class="post-card">
-    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title_en | default: post.title }}</a></h3>
-    <p>{{ post.description_en | default: post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
-  </div>
-  {% endfor %}
 </div>
