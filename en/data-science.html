@@ -1,6 +1,26 @@
 ---
 layout: default
 title: "Data Science"
+permalink: /en/data-science/
+lang: en
+---
+
+<h1>Data Science</h1>
+<p>Here you can find all my articles, projects, and notes on Data Science and Machine Learning.</p>
+
+<div class="post-list">
+  {% for post in site.categories['data-science'] %}
+    {% if post.lang == "en" %}
+    <div class="post-card">
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>---
+layout: default
+title: "Data Science"
 lang: en
 permalink: /en/data-science/
 ---
