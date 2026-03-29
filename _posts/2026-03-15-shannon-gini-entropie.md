@@ -1,7 +1,9 @@
 ---
 layout: default
 title: "Data Science: Shannon-Entropie und Gini-Unreinheit"
-permalink: /shannon-gini-entropie/
+title_en: "Data Science: Shannon Entropy and Gini Impurity"
+description: "Ein kurzer Einblick in die Mathematik hinter Entscheidungsbäumen."
+description_en: "A brief look into the mathematics behind decision trees."
 category: data-science
 ---
 
