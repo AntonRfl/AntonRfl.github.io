@@ -5,6 +5,7 @@ description: "A brief look into the mathematics behind decision trees."
 category: data-science
 lang: en
 permalink: /en/data-science/shannon-entropy/
+de_url: /data-science/shannon-entropie/
 ---
 
 # Data Science: Shannon Entropy and Gini Impurity
