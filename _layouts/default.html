@@ -308,15 +308,24 @@
         </div>
         
         {% if page.lang == "en" %}
-            {% assign de_url = page.url | remove_first: "/en" %}
-            {% if de_url == "" %}{% assign de_url = "/" %}{% endif %}
-            <a href="{{ de_url }}" class="lang-toggle show-en" title="Auf Deutsch wechseln">
+            {% assign target_de = page.de_url %}
+            {% if target_de == nil %}
+                {% assign target_de = page.url | remove_first: "/en" %}
+            {% endif %}
+            {% if target_de == "" %}{% assign target_de = "/" %}{% endif %}
+            
+            <a href="{{ target_de }}" class="lang-toggle show-en" title="Auf Deutsch wechseln">
                 <div class="lang-toggle-bg"></div>
                 <span class="lang-text lang-text-de">DE</span>
                 <span class="lang-text lang-text-en">EN</span>
             </a>
         {% else %}
-            <a href="/en{{ page.url }}" class="lang-toggle" title="Switch to English">
+            {% assign target_en = page.en_url %}
+            {% if target_en == nil %}
+                {% assign target_en = "/en" | append: page.url %}
+            {% endif %}
+            
+            <a href="{{ target_en }}" class="lang-toggle" title="Switch to English">
                 <div class="lang-toggle-bg"></div>
                 <span class="lang-text lang-text-de">DE</span>
                 <span class="lang-text lang-text-en">EN</span>
