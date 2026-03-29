@@ -2,33 +2,20 @@
 layout: default
 title: "IT Security"
 permalink: /it-security/
+lang: de
 ---
 
-<div class="lang-de" markdown="1">
-# IT Security
-Hier findest du alle meine Artikel, Projekte und Notizen zum Thema IT Security, Cybersecurity und Datenschutz.
+<h1>IT Security</h1>
+<p>Hier findest du alle meine Artikel, Projekte und Notizen zum Thema IT Security, Cybersecurity und Datenschutz.</p>
 
-### Alle Beiträge:
-<ul>
+<div class="post-list">
   {% for post in site.categories['it-security'] %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
+    {% if post.lang != "en" %}
+    <div class="post-card">
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
+    </div>
+    {% endif %}
   {% endfor %}
-</ul>
-</div>
-
-
-<div class="lang-en" markdown="1">
-# IT Security
-Here you can find all my articles, projects, and notes on IT Security, Cybersecurity, and Data Privacy.
-
-### All posts:
-<ul>
-  {% for post in site.categories['it-security'] %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
 </div>
