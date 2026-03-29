@@ -4,36 +4,36 @@ title: "Software Engineering"
 permalink: /software-engineering/
 ---
 
-<div class="lang-de" markdown="1">
+<div class="lang-de">
 
-# Software Engineering
-Hier findest du alle meine Artikel, Projekte und Notizen zum Thema Software Engineering, Architektur und Programmierung.
+  <h1>Software Engineering</h1>
+  <p>Hier findest du alle meine Artikel, Projekte und Notizen zum Thema Software Engineering, Architektur und Programmierung.</p>
 
-<div class="post-list">
-  {% for post in site.categories['software-engineering'] %}
-  <div class="post-card">
-    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-    <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
+  <div class="post-list">
+    {% for post in site.categories['software-engineering'] %}
+    <div class="post-card">
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
 
 </div>
 
-<div class="lang-en" markdown="1">
+<div class="lang-en">
 
-# Software Engineering
-Here you can find all my articles, projects, and notes on Software Engineering, Architecture, and Programming.
+  <h1>Software Engineering</h1>
+  <p>Here you can find all my articles, projects, and notes on Software Engineering, Architecture, and Programming.</p>
 
-<div class="post-list">
-  {% for post in site.categories['software-engineering'] %}
-  <div class="post-card">
-    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-    <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
+  <div class="post-list">
+    {% for post in site.categories['software-engineering'] %}
+    <div class="post-card">
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
 
 </div>
