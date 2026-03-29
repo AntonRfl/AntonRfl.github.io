@@ -2,33 +2,20 @@
 layout: default
 title: "Data Science"
 permalink: /data-science/
+lang: de
 ---
 
-<div class="lang-de" markdown="1">
-# Data Science
-Hier findest du alle meine Artikel, Projekte und Notizen zum Thema Data Science und Machine Learning.
+<h1>Data Science</h1>
+<p>Hier findest du alle meine Artikel, Projekte und Notizen zum Thema Data Science und Machine Learning.</p>
 
-### Alle Beiträge:
-<ul>
+<div class="post-list">
   {% for post in site.categories['data-science'] %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
+    {% if post.lang != 'en' %}
+    <div class="post-card">
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
+    </div>
+    {% endif %}
   {% endfor %}
-</ul>
-</div>
-
-
-<div class="lang-en" markdown="1">
-# Data Science
-Here you can find all my articles, projects, and notes on Data Science and Machine Learning.
-
-### All posts:
-<ul>
-  {% for post in site.categories['data-science'] %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
 </div>
