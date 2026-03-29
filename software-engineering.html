@@ -5,30 +5,35 @@ permalink: /software-engineering/
 ---
 
 <div class="lang-de" markdown="1">
+
 # Software Engineering
 Hier findest du alle meine Artikel, Projekte und Notizen zum Thema Software Engineering, Architektur und Programmierung.
 
-### Alle Beiträge:
-<ul>
+<div class="post-list">
   {% for post in site.categories['software-engineering'] %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
+  <div class="post-card">
+    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
+  </div>
   {% endfor %}
-</ul>
 </div>
 
+</div>
 
 <div class="lang-en" markdown="1">
+
 # Software Engineering
 Here you can find all my articles, projects, and notes on Software Engineering, Architecture, and Programming.
 
-### All posts:
-<ul>
+<div class="post-list">
   {% for post in site.categories['software-engineering'] %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
+  <div class="post-card">
+    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
+  </div>
   {% endfor %}
-</ul>
+</div>
+
 </div>
