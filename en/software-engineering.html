@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Software Engineering"
+lang: en
+permalink: /en/software-engineering/
+---
+
+<h1>Software Engineering</h1>
+<p>Here you can find all my articles, projects, and notes on Software Engineering, Architecture, and Programming.</p>
+
+<div class="post-list">
+  {% for post in site.categories['software-engineering'] %}
+  <div class="post-card">
+    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title_en | default: post.title }}</a></h3>
+    <p>{{ post.description_en | default: post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
+  </div>
+  {% endfor %}
+</div>
