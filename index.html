@@ -13,12 +13,10 @@ lang: de
 
 <div class="post-list">
   {% for post in site.posts %}
-    {% if post.lang != 'en' %}
       <div class="post-card">
         <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
         <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
         <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
       </div>
-    {% endif %}
   {% endfor %}
 </div>
