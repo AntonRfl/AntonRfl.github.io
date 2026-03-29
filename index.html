@@ -1,17 +1,47 @@
 ---
 layout: default
-title: AntonRfl - Startseite
+title: "Startseite - AntonRfl"
 ---
 
-<h1>Willkommen auf meinem Profil! 🚀</h1>
-<p>Hallo, ich bin Anton. Hier präsentiere ich meine Arbeit und schreibe über Dinge, die mich interessieren.</p>
+<div class="lang-de" markdown="1">
 
-<h2>Meine neuesten Blog-Artikel</h2>
-<ul>
+# Willkommen auf meinem Profil! 🚀
+Hallo, ich bin Anton. Hier präsentiere ich meine Arbeit und schreibe über Dinge, die mich interessieren (Software Engineering, IT Security & Data Science).
+
+<br>
+
+## Meine neuesten Artikel
+
+<div class="post-list">
   {% for post in site.posts %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> 
-      - <small>{{ post.date | date: "%d.%m.%Y" }}</small>
-    </li>
+  <div class="post-card">
+    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
+  </div>
   {% endfor %}
-</ul>
+</div>
+
+</div>
+
+
+<div class="lang-en" markdown="1">
+
+# Welcome to my Profile! 🚀
+Hi, I'm Anton. Here I showcase my work and write about things that interest me (Software Engineering, IT Security & Data Science).
+
+<br>
+
+## My latest Articles
+
+<div class="post-list">
+  {% for post in site.posts %}
+  <div class="post-card">
+    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
+  </div>
+  {% endfor %}
+</div>
+
+</div>
