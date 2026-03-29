@@ -180,7 +180,7 @@
             z-index: 1;
         }
 
-        body.show-en .lang-toggle-bg { transform: translateX(100%); }
+        a.show-en .lang-toggle-bg { transform: translateX(100%); }
 
         .lang-text {
             flex: 1;
@@ -195,8 +195,8 @@
         .lang-text-de { color: #2b2b2b; }
         .lang-text-en { color: #00e676; }
 
-        body.show-en .lang-text-de { color: #00e676; }
-        body.show-en .lang-text-en { color: #2b2b2b; }
+        a.show-en .lang-text-de { color: #00e676; }
+        a.show-en .lang-text-en { color: #2b2b2b; }
     
         /* =========================================
            Spotlight Cursor-Glow
@@ -294,17 +294,34 @@
 <div class="cursor-glow"></div>
     <nav>
         <div class="nav-links">
-            <a href="/">Startseite</a>
-            <a href="/software-engineering/">Software Engineering</a>
-            <a href="/it-security/">IT Security</a>
-            <a href="/data-science/">Data Science</a>
+            {% if page.lang == "en" %}
+                <a href="/en/">Home</a>
+                <a href="/en/software-engineering/">Software Engineering</a>
+                <a href="/en/it-security/">IT Security</a>
+                <a href="/en/data-science/">Data Science</a>
+            {% else %}
+                <a href="/">Startseite</a>
+                <a href="/software-engineering/">Software Engineering</a>
+                <a href="/it-security/">IT Security</a>
+                <a href="/data-science/">Data Science</a>
+            {% endif %}
         </div>
         
-        <div class="lang-toggle" onclick="toggleLanguage()">
-            <div class="lang-toggle-bg"></div>
-            <span class="lang-text lang-text-de">DE</span>
-            <span class="lang-text lang-text-en">EN</span>
-        </div>
+        {% if page.lang == "en" %}
+            {% assign de_url = page.url | remove_first: "/en" %}
+            {% if de_url == "" %}{% assign de_url = "/" %}{% endif %}
+            <a href="{{ de_url }}" class="lang-toggle show-en" title="Auf Deutsch wechseln">
+                <div class="lang-toggle-bg"></div>
+                <span class="lang-text lang-text-de">DE</span>
+                <span class="lang-text lang-text-en">EN</span>
+            </a>
+        {% else %}
+            <a href="/en{{ page.url }}" class="lang-toggle" title="Switch to English">
+                <div class="lang-toggle-bg"></div>
+                <span class="lang-text lang-text-de">DE</span>
+                <span class="lang-text lang-text-en">EN</span>
+            </a>
+        {% endif %}
     </nav>
 
     <main>
@@ -331,19 +348,7 @@
     </footer>
 
     <script>
-        function toggleLanguage() {
-            document.body.classList.toggle('show-en');
-            if (document.body.classList.contains('show-en')) {
-                localStorage.setItem('preferredLang', 'en');
-            } else {
-                localStorage.setItem('preferredLang', 'de');
-            }
-        }
-        if (localStorage.getItem('preferredLang') === 'en') {
-            document.body.classList.add('show-en');
-        }
-    
-    // Den Cursor-Glow an die Maus heften
+        // Den Cursor-Glow an die Maus heften
         document.addEventListener('mousemove', function(e) {
             const glow = document.querySelector('.cursor-glow');
             if (glow) {
@@ -352,7 +357,6 @@
                 glow.style.setProperty('--mouse-y', e.clientY + 'px');
             }
         });
-    
     </script>
 
 </body>
