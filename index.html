@@ -1,22 +1,22 @@
 ---
 layout: default
-title: "Startseite - AntonRfl"
+title: "Startseite"
 lang: de
 ---
 
 <h1>Willkommen auf meinem Profil! 🚀</h1>
-<p>Hallo, ich bin Anton. Hier präsentiere ich meine Arbeit und schreibe über Dinge, die mich interessieren (Software Engineering, IT Security & Data Science).</p>
-
-<br>
+<p>Hi, ich bin Anton. Hier präsentiere ich meine Projekte und schreibe über Themen, die mich begeistern (Software Engineering, IT Security & Data Science).</p>
 
 <h2>Meine neuesten Artikel</h2>
 
 <div class="post-list">
   {% for post in site.posts %}
-      <div class="post-card">
-        <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-        <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
-      </div>
+    {% if post.lang != "en" %}
+    <div class="post-card">
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
+    </div>
+    {% endif %}
   {% endfor %}
 </div>
