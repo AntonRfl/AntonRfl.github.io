@@ -289,6 +289,25 @@
     </script>
     {% endraw %}
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+{% if page.lang == "en" %}
+        <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}" />
+        {% if page.de_url %}
+            <link rel="alternate" hreflang="de" href="{{ site.url }}{{ page.de_url }}" />
+        {% else %}
+            {% assign de_url = page.url | remove_first: "/en" %}
+            <link rel="alternate" hreflang="de" href="{{ site.url }}{{ de_url }}" />
+        {% endif %}
+    {% else %}
+        <link rel="alternate" hreflang="de" href="{{ site.url }}{{ page.url }}" />
+        {% if page.en_url %}
+            <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.en_url }}" />
+        {% else %}
+            <link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url }}" />
+        {% endif %}
+    {% endif %}
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}" />
+
 </head>
 <body>
 <div class="cursor-glow"></div>
