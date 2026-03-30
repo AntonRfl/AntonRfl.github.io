@@ -2,8 +2,8 @@
 layout: default
 title: "PDFs as an Entry Point: Parsing Documents with Python"
 description: "Methods and tools for automatically analyzing PDF documents and securely extracting data using Python."
-category: it-security
 lang: en
+category: it-security
 permalink: /en/it-security/pdf-parsing/
 de_url: /it-security/pdf-daten-auslesen/
 ---
