@@ -1,8 +1,10 @@
 ---
 layout: default
 title: "PDFs als Eingriffspunkt: Dokumente mit Python auslesen"
-permalink: /pdf-datenquelle/
+lang: de
 category: it-security
+permalink: /it-security/pdf-daten-auslesen/
+en_url: /en/it-security/pdf-parsing/
 ---
 
 <div class="lang-de" markdown="1">
