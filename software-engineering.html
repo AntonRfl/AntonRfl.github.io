@@ -2,38 +2,20 @@
 layout: default
 title: "Software Engineering"
 permalink: /software-engineering/
+lang: de
 ---
 
-<div class="lang-de">
+<h1>Software Engineering</h1>
+<p>Hier findest du alle meine Artikel, Projekte und Notizen zum Thema Software Engineering, Architektur und Programmierung.</p>
 
-  <h1>Software Engineering</h1>
-  <p>Hier findest du alle meine Artikel, Projekte und Notizen zum Thema Software Engineering, Architektur und Programmierung.</p>
-
-  <div class="post-list">
-    {% for post in site.categories['software-engineering'] %}
+<div class="post-list">
+  {% for post in site.categories['software-engineering'] %}
+    {% if post.lang != "en" %}
     <div class="post-card">
       <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-      <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Weiterlesen &rarr;</a>
     </div>
-    {% endfor %}
-  </div>
-
-</div>
-
-<div class="lang-en">
-
-  <h1>Software Engineering</h1>
-  <p>Here you can find all my articles, projects, and notes on Software Engineering, Architecture, and Programming.</p>
-
-  <div class="post-list">
-    {% for post in site.categories['software-engineering'] %}
-    <div class="post-card">
-      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-      <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
-    </div>
-    {% endfor %}
-  </div>
-
+    {% endif %}
+  {% endfor %}
 </div>
