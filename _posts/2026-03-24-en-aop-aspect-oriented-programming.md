@@ -2,7 +2,7 @@
 layout: default
 title: "Aspect-Oriented Programming (AOP): Concepts, Mechanisms & Best Practices"
 description: "A comprehensive technical post on concepts, mechanisms, and best practices in Aspect-Oriented Programming."
-permalink: /en/aop-aspect-oriented-programming/
+permalink: /en/software-engineering/aop-aspect-oriented-programming/
 category: software-engineering
 lang: en
 ---
