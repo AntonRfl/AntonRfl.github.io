@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "Software Engineering"
-lang: en
 permalink: /en/software-engineering/
+lang: en
 ---
 
 <h1>Software Engineering</h1>
@@ -10,10 +10,12 @@ permalink: /en/software-engineering/
 
 <div class="post-list">
   {% for post in site.categories['software-engineering'] %}
-  <div class="post-card">
-    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title_en | default: post.title }}</a></h3>
-    <p>{{ post.description_en | default: post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
-  </div>
+    {% if post.lang == "en" %}
+    <div class="post-card">
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
+    </div>
+    {% endif %}
   {% endfor %}
 </div>
