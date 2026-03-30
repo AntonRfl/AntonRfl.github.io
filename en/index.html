@@ -1,22 +1,23 @@
 ---
 layout: default
-title: "Home - AntonRfl"
+title: "Home"
 lang: en
+permalink: /en/
 ---
 
 <h1>Welcome to my Profile! 🚀</h1>
 <p>Hi, I'm Anton. Here I showcase my work and write about things that interest me (Software Engineering, IT Security & Data Science).</p>
 
-<br>
-
 <h2>My latest Articles</h2>
 
 <div class="post-list">
   {% for post in site.posts %}
+    {% if post.lang == "en" %}
     <div class="post-card">
-      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title_en | default: post.title }}</a></h3>
-      <p>{{ post.description_en | default: post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &rarr;</a>
     </div>
+    {% endif %}
   {% endfor %}
 </div>
