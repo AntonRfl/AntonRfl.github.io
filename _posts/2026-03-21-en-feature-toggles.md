@@ -7,17 +7,17 @@ lang: en
 permalink: /en/software-engineering/feature-toggles/
 de_url: /software-engineering/feature-toggles/
 ---
-<div class="lang-en" markdown="1">
-# Feature Toggles: Parallel Development without Merge Hell
 
-[cite_start]Traditionally, parallel development in software engineering is managed through branching[cite: 454]. [cite_start]However, this has disadvantages: Long-lived branches often lead to severe merge conflicts (the so-called "Merge Hell") [cite: 455][cite_start], and the code is only integrated once the branch is merged (delayed integration)[cite: 456].
+# Feature Toggles: Parallel Development Without Merge Hell
 
-The elegant solution to this problem is **Feature Toggles**. [cite_start]They reduce the need for long-term branches and thus enormously decrease merge conflicts[cite: 458, 459]. [cite_start]Instead of working in separate branches, multiple developers can simultaneously work on different features in the same code branch, isolated only by these switches[cite: 462, 463]. [cite_start]This makes feature toggles the technical prerequisite for modern practices like Continuous Integration and Trunk-Based Development[cite: 460, 461].
+Traditionally, parallel development in software engineering is managed through branching. However, this has its downsides: long-lived branches often lead to severe merge conflicts (the so-called "Merge Hell") and code is only integrated when the branch is merged (delayed integration).
+
+The elegant solution to this problem is **Feature Toggles**. They reduce the need for long-term branches and significantly decrease merge conflicts. Instead of working in separate branches, multiple developers can work on different features within the same code branch simultaneously, isolated only by these switches. This makes Feature Toggles a technical prerequisite for modern practices like Continuous Integration and Trunk-Based Development.
 
 ### How do Feature Toggles work?
-[cite_start]In the context of Configuration Management (CM), feature toggles act like "configurable CIs" (Configuration Items)[cite: 469]. [cite_start]The behavior of the software is no longer determined solely by the file version, but significantly by the setting of these switches[cite: 470]. [cite_start]Changes to the production system happen much faster by simply switching a configuration, rather than through complex code merges[cite: 471].
+In the context of Configuration Management (CM), feature toggles act like "configurable CIs" (Configuration Items). The software's behavior is no longer determined solely by the file version, but significantly by the setting of these switches. Changes to the production system happen much faster by toggling a configuration instead of performing complex code merges.
 
-[cite_start]Here is a simple architectural example in Java[cite: 474]:
+Here is a simple architectural example in Java:
 
 {% highlight java %}
 public class PaymentService {
@@ -32,16 +32,15 @@ public class PaymentService {
 }
 {% endhighlight %}
 
-[cite_start]This example illustrates a logical instead of a physical separation: The new code (`handlePaymentNew`) sits directly next to the old code in the main trunk[cite: 475]. [cite_start]The `if` statement acts as a switch that decides at runtime which path is taken[cite: 476].
+This example illustrates logical rather than physical separation: the new code (`handlePaymentNew`) sits directly alongside the old code in the main trunk. The `if` statement acts as a switch that decides at runtime which path to take.
 
 ### "Dark Launching" and Types of Toggles
-[cite_start]A massive advantage of this approach is so-called "Dark Launching": Unfinished or new features can be safely deployed to the production system because they are still set to be invisible ("dark") to the end user via the switch[cite: 466, 467]. [cite_start]Features can be turned on or off during operation without having to create or install a new software version (baseline)[cite: 464, 465].
+A huge advantage of this approach is "Dark Launching": unfinished or new functions can be safely deployed to the production system because they remain invisible ("dark") to the end user via the switch. Features can be turned on or off during operation without needing to create or install a new software version (baseline).
 
-[cite_start]There are different types of feature toggles depending on their intended use[cite: 480]:
-* [cite_start]**Release Toggles**: Hide unfinished features, are mostly short-lived, and should be removed after the release[cite: 481, 482, 483].
-* [cite_start]**Operations Toggles**: Activate emergency modes or workarounds and are an extremely important component in incident management[cite: 484, 485, 486].
-* [cite_start]**Experiment Toggles**: Are used for A/B testing and variant control[cite: 487, 488].
-* [cite_start]**Permission Toggles**: Control feature delivery for specific roles or user groups and are often long-lived[cite: 490, 491, 492].
+There are different types of feature toggles depending on the use case:
+* **Release Toggles**: Hide unfinished features; they are usually short-lived and should be removed after release.
+* **Operations Toggles**: Activate emergency modes or workarounds and are an extremely important component in incident management.
+* **Experiment Toggles**: Used for A/B testing and variant control.
+* **Permission Toggles**: Control feature delivery for specific roles or user groups and are often long-lived.
 
-[cite_start]**An important note for practice:** The states of the toggles (On/Off) must absolutely become part of the CM documentation and logs in order to be able to exactly reconstruct the system state later[cite: 472, 473].
-</div>
+**A key practical tip:** The states of the toggles (On/Off) must be included in the CM documentation and logs to accurately reconstruct the system state later.
