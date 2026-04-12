@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Aktivierungsfunktionen: Eine Analyse der Gradienten und Repräsentationen in tiefen Netzen"
+title: "Aktivierungsfunktionen: Eine Analyse der Gradienten und Repräsentationen in Neuronalen Netzen"
 description: "Warum tiefe neuronale Netze ohne Nichtlinearität kollabieren: Eine technische Analyse von Vanishing Gradients, ReLU, SiLU, GeLU und der Geometrie von Softmax."
 category: data-science
 lang: de
