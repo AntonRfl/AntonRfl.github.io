@@ -144,15 +144,15 @@ Crosscutting Concerns sind technische Anforderungen, die sich quer durch das ges
     <text x="185" y="28" text-anchor="middle" font-weight="bold" font-size="13" fill="#ff5555">Code Tangling</text>
     <rect x="30" y="40" width="310" height="165" rx="6" fill="#1e2229" stroke="#30363d"/>
     <rect x="30" y="40" width="310" height="28" fill="#ff5555" opacity="0.2"/>
-    <text x="185" y="58" text-anchor="middle" font-size="11" fill="#ffb86c">🔒 Security Check</text>
+    <text x="185" y="58" text-anchor="middle" font-size="11" fill="#ffb86c"> Security Check</text>
     <rect x="30" y="68" width="310" height="28" fill="#f1fa8c" opacity="0.1"/>
-    <text x="185" y="86" text-anchor="middle" font-size="11" fill="#f1fa8c">📋 Logging Start</text>
+    <text x="185" y="86" text-anchor="middle" font-size="11" fill="#f1fa8c"> Logging Start</text>
     <rect x="30" y="96" width="310" height="38" fill="#50fa7b" opacity="0.2"/>
-    <text x="185" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="#50fa7b">💼 Geschäftslogik (createInvoice)</text>
+    <text x="185" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="#50fa7b"> Geschäftslogik (createInvoice)</text>
     <rect x="30" y="134" width="310" height="28" fill="#f1fa8c" opacity="0.1"/>
-    <text x="185" y="152" text-anchor="middle" font-size="11" fill="#f1fa8c">📋 Logging End</text>
+    <text x="185" y="152" text-anchor="middle" font-size="11" fill="#f1fa8c"> Logging End</text>
     <rect x="30" y="162" width="310" height="28" fill="#bd93f9" opacity="0.2"/>
-    <text x="185" y="180" text-anchor="middle" font-size="11" fill="#bd93f9">🔄 Transaction Commit</text>
+    <text x="185" y="180" text-anchor="middle" font-size="11" fill="#bd93f9"> Transaction Commit</text>
     <text x="185" y="210" text-anchor="middle" font-size="10" fill="#ff5555" font-style="italic">⚠ Geschäftslogik ist verschleiert</text>
     <text x="380" y="115" text-anchor="middle" font-size="22" fill="#00b0ff">⟷</text>
     <text x="575" y="28" text-anchor="middle" font-weight="bold" font-size="13" fill="#ff5555">Code Scattering</text>
