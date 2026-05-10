@@ -45,8 +45,7 @@ Netzwerke sind unzuverlässig (*Partitions*), Nachrichten gehen verloren oder ko
 Ein Zustand, in dem ein verteiltes System aufgrund einer Netzwerkpartition in zwei oder mehr unabhängige Sub-Cluster zerfällt, die jeweils glauben, die alleinige Kontrolle über die Daten zu haben. Dies führt zwangsläufig zu Datenkorruption.
 </div>
 
-assets/images/software-engineering/raft-consensus-algorithmus
-[Bild 1 - Adresse: /assets/images/software-engineering/raft-consensus-algorithmus/split-brain-partition.png]
+![Split-Brain Szenario]({{ site.baseurl }}/assets/images/software-engineering/raft-consensus-algorithmus/split-brain-partition.png)
 
 Um dies zu verhindern, muss ein System **Linearisierbarkeit** garantieren: Es muss sich nach außen hin so verhalten, als gäbe es nur eine einzige, atomare Kopie der Daten.
 
@@ -76,7 +75,7 @@ Ein Knoten gibt seine Stimme nur unter zwei Bedingungen ab:
 1. Er hat in diesem Term noch nicht gewählt.
 2. Das Log des Kandidaten ist **mindestens so aktuell** wie das eigene (Election Safety).
 
-[Bild 2 - Adresse: /assets/images/software-engineering/raft-consensus-algorithmus/node-state-machine.png]
+![Raft Zustandsmaschine]({{ site.baseurl }}/assets/images/software-engineering/raft-consensus-algorithmus/node-state-machine.png)
 
 ## 4. Log Replication & Quorum-Sicherheit
 
@@ -92,7 +91,7 @@ Ein Eintrag gilt erst dann als "Committed" (festgeschrieben), wenn er auf einer 
 1. **Phase 1 (Uncommitted):** Der Leader sendet den Log-Eintrag. Follower speichern ihn, führen ihn aber noch nicht aus.
 2. **Phase 2 (Commit):** Sobald das Quorum erreicht ist, erhöht der Leader seinen `commitIndex`. In der nächsten Nachricht erfahren die Follower davon und "committen" den Eintrag ebenfalls in ihre lokale State-Machine.
 
-[Bild 3 - Adresse: /assets/images/software-engineering/raft-consensus-algorithmus/log-replication-flow.png]
+![Log Replication Flow]({{ site.baseurl }}/assets/images/software-engineering/raft-consensus-algorithmus/log-replication-flow.png)
 
 ## 5. Raft Safety: Die Leader Completeness Property
 
