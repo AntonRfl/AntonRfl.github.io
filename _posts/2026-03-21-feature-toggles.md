@@ -8,7 +8,7 @@ permalink: /software-engineering/feature-toggles/
 en_url: /en/software-engineering/feature-toggles/
 ---
 
-# Feature Toggles: Parallele Entwicklung ohne Merge-Hölle
+# Feature-Toggles: Definition, Vorteile und Best Practices
 
 Traditionell steuert man parallele Entwicklung in der Softwareentwicklung durch Branching. Dies hat jedoch Nachteile: Langlebige Branches führen oft zu schweren Merge-Konflikten "Merge Hell" und der Code ist erst integriert, wenn der Branch gemerged wird (verzögerte Integration).
 
@@ -39,7 +39,7 @@ public class PaymentService {
 
 Dieses Beispiel zeigt eine logische statt einer physischen Trennung: Der neue Code (`handlePaymentNew`) liegt direkt neben dem alten Code im Hauptstamm. Die `if`-Abfrage fungiert als Schalter, der zur Laufzeit entscheidet, welcher Weg eingeschlagen wird. 
 
-### "Dark Launching" und Arten von Toggles
+### Arten von Toggles
 Ein besonderes Highlight dieser Technik ist wie oben erwähnt "Dark Launching": Unfertige oder neue Funktionen können sicher in der Produktionsumgebung deployed werden, da sie für den Endanwender durch den Schalter noch unsichtbar ("dunkel") geschaltet sind. Features lassen sich im laufenden Betrieb an- oder abschalten, ohne dass eine neue Software-Version (Baseline) erstellt oder installiert werden muss.
 
 Es gibt neben den Feature Toggles auch andere verschiedene Arten, je nach Einsatzzweck:
