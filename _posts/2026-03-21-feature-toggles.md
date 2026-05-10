@@ -10,12 +10,17 @@ en_url: /en/software-engineering/feature-toggles/
 
 # Feature Toggles: Parallele Entwicklung ohne Merge-Hölle
 
-Traditionell steuert man parallele Entwicklung in der Softwareentwicklung durch Branching. Dies hat jedoch Nachteile: Langlebige Branches führen oft zu schweren Merge-Konflikten (der sogenannten "Merge Hell") und der Code ist erst integriert, wenn der Branch gemerged wird (verzögerte Integration).
+Traditionell steuert man parallele Entwicklung in der Softwareentwicklung durch Branching. Dies hat jedoch Nachteile: Langlebige Branches führen oft zu schweren Merge-Konflikten "Merge Hell" und der Code ist erst integriert, wenn der Branch gemerged wird (verzögerte Integration).
 
-Die elegante Lösung für dieses Problem sind **Feature Toggles**. Sie reduzieren den Bedarf an langfristigen Branches und verringern so Merge-Konflikte enorm. Anstatt in separaten Zweigen zu arbeiten, können mehrere Entwickler gleichzeitig an verschiedenen Features im selben Code-Branch arbeiten, isoliert nur durch diese Schalter. Dadurch sind Feature Toggles die technische Voraussetzung für moderne Praktiken wie Continuous Integration und Trunk-Based Development.
+Die elegante Lösung für dieses Problem sind **Feature Toggles**. Sie reduzieren den Bedarf an langfristigen Branches und verringern somit Merge-Konflikte enorm. Anstatt in separaten Zweigen zu arbeiten, können mehrere Entwickler gleichzeitig an verschiedenen Features im selben Code-Branch arbeiten, isoliert nur durch diese Schalter. Dadurch sind Feature Toggles die technische Voraussetzung für moderne Praktiken wie Continuous Integration und Trunk-Based Development.
 
 ### Wie funktionieren Feature Toggles?
-Im Kontext des Configuration Managements (CM) wirken Feature Toggles wie „konfigurierbare CIs“ (Configuration Items). Das Verhalten der Software wird nicht mehr allein durch die Dateiversion bestimmt, sondern maßgeblich durch die Einstellung dieser Schalter. Änderungen am produktiven System erfolgen viel schneller durch das Umschalten einer Konfiguration, anstatt durch aufwendige Code-Merges.
+Feature Toggles (oder manchmal Feature Switches genannt) sind eine Technik in der Softwareentwicklung, mit der Funktionen einer Anwendung zur Laufzeit aktiviert oder deaktiviert werden können, ohne den Code neu deployen zu müssen. Sie fungieren als "If-Statements", die entscheiden, ob ein neuer Code für Nutzer sichtbar ist. Im Kontext des Configuration Managements (CM) wirken Feature Toggles wie „konfigurierbare CIs“ (Configuration Items). Änderungen am produktiven System erfolgen viel schneller durch das Umschalten einer Konfiguration, anstatt durch aufwendige Code-Merges.
+
+**Vorteile**:
+* Neue Funktionen können im Live-System getestet werden, ohne sie für alle Nutzer freizuschalten "Dark Launching"
+* Code kann in die Produktion übernommen werden, während er noch in der Entwicklung ist, was zu kontinuierlicher Integration (CI/CD) beiträgt.
+* Features können bei Fehlern sofort "ausgeschaltet" werden, statt eine Rücknahme des Deployments durchzuführen.
 
 Hier ist ein einfaches Architektur-Beispiel in Java:
 
@@ -32,12 +37,12 @@ public class PaymentService {
 }
 {% endhighlight %}
 
-Dieses Beispiel illustriert eine logische statt einer physischen Trennung: Der neue Code (`handlePaymentNew`) liegt direkt neben dem alten Code im Hauptstamm. Die `if`-Abfrage fungiert als Schalter, der zur Laufzeit entscheidet, welcher Weg eingeschlagen wird. 
+Dieses Beispiel zeigt eine logische statt einer physischen Trennung: Der neue Code (`handlePaymentNew`) liegt direkt neben dem alten Code im Hauptstamm. Die `if`-Abfrage fungiert als Schalter, der zur Laufzeit entscheidet, welcher Weg eingeschlagen wird. 
 
 ### "Dark Launching" und Arten von Toggles
-Ein riesiger Vorteil dieses Ansatzes ist das sogenannte "Dark Launching": Unfertige oder neue Funktionen können sicher auf das Produktionssystem deployed werden, da sie für den Endanwender durch den Schalter noch unsichtbar ("dunkel") geschaltet sind. Features lassen sich im laufenden Betrieb an- oder abschalten, ohne dass eine neue Software-Version (Baseline) erstellt oder installiert werden muss.
+Ein besonderes Highlight dieser Technik ist wie oben erwähnt "Dark Launching": Unfertige oder neue Funktionen können sicher in der Produktionsumgebung deployed werden, da sie für den Endanwender durch den Schalter noch unsichtbar ("dunkel") geschaltet sind. Features lassen sich im laufenden Betrieb an- oder abschalten, ohne dass eine neue Software-Version (Baseline) erstellt oder installiert werden muss.
 
-Es gibt verschiedene Arten von Feature Toggles, je nach Einsatzzweck:
+Es gibt neben den Feature Toggles auch andere verschiedene Arten, je nach Einsatzzweck:
 * **Release Toggles**: Blenden unfertige Features aus, sind meist kurzlebig und sollten nach dem Release entfernt werden.
 * **Operations Toggles**: Aktivieren Notfallmodi oder Workarounds und sind eine extrem wichtige Komponente im Incident-Management.
 * **Experiment Toggles**: Werden für A/B-Testing und die Variantensteuerung genutzt.
