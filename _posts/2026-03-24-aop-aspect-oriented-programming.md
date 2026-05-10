@@ -148,7 +148,7 @@ Crosscutting Concerns sind technische Anforderungen, die sich quer durch das ges
     <rect x="30" y="68" width="310" height="28" fill="#f1fa8c" opacity="0.1"/>
     <text x="185" y="86" text-anchor="middle" font-size="11" fill="#f1fa8c"> Logging Start</text>
     <rect x="30" y="96" width="310" height="38" fill="#50fa7b" opacity="0.2"/>
-    <text x="185" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="#50fa7b"> Geschäftslogik (createInvoice)</text>
+    <text x="185" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="#50fa7b"> Geschäftslogik</text>
     <rect x="30" y="134" width="310" height="28" fill="#f1fa8c" opacity="0.1"/>
     <text x="185" y="152" text-anchor="middle" font-size="11" fill="#f1fa8c"> Logging End</text>
     <rect x="30" y="162" width="310" height="28" fill="#bd93f9" opacity="0.2"/>
