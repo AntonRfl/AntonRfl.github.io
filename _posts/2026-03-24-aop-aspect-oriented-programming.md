@@ -93,13 +93,8 @@ lang: de
 
 # Aspect-Oriented Programming (AOP)
 
-*Ein umfassender technischer Beitrag zu Konzepten, Mechanismen, Einsatzgebieten und Best Practices*
-
----
-
-## 1. Einleitung & historischer Kontext
-
-Die Softwareentwicklung hat sich in Phasen weiterentwickelt — stets mit dem Ziel, Code wartbarer, modularer und verständlicher zu gestalten. Die Aspekt-Orientierte Programmierung (AOP) wurde Ende der 1990er-Jahre von **Gregor Kiczales** und seinem Team bei Xerox PARC entwickelt und 1997 erstmals veröffentlicht. Sie entstand aus der Erkenntnis, dass selbst gut strukturierter objektorientierter Code bei bestimmten Anforderungsklassen systematisch an seine Grenzen stößt.
+## 1. Historischer Kontext
+Jeder, der schon einmal an einer größeren Enterprise-Anwendung (z. B. mit Spring Boot) gearbeitet hat, kennt das Problem: Eigentlich will man nur eine saubere, übersichtliche Methode für die Geschäftslogik schreiben. Doch in der Realität besteht ein Großteil des Codes aus Logging-Aufrufen, Try-Catch-Blöcken für Datenbanktransaktionen und Security-Checks. Genau um solche Cross-Cutting Concerns sauber vom eigentlichen Kerncode zu trennen, wurde die Aspekt-Orientierte Programmierung (AOP) erfunden.
 
 <div class="diagram-wrap">
   <div class="diagram-title">Evolutionsstufen der Programmierung</div>
@@ -122,9 +117,6 @@ Die Softwareentwicklung hat sich in Phasen weiterentwickelt — stets mit dem Zi
     <text x="587" y="68" text-anchor="middle" font-weight="bold" font-size="13" fill="#e6edf3">Aspektorientierung</text>
     <text x="587" y="84" text-anchor="middle" font-weight="bold" font-size="13" fill="#e6edf3">(AOP)</text>
     <text x="587" y="104" text-anchor="middle" font-size="11" fill="#abb2bf">Aspekte für Querschnittsfunktionen</text>
-    <text x="107" y="148" text-anchor="middle" font-size="10" fill="#8b949e">~1960s</text>
-    <text x="347" y="148" text-anchor="middle" font-size="10" fill="#8b949e">~1980s</text>
-    <text x="587" y="148" text-anchor="middle" font-size="10" fill="#8b949e">~1997 (Xerox PARC)</text>
   </svg>
 </div>
 
@@ -134,12 +126,11 @@ Die Softwareentwicklung hat sich in Phasen weiterentwickelt — stets mit dem Zi
 
 ### 2.1 Die Tyrannei der dominanten Dekomposition
 
-In der OOP zerlegen wir Software anhand ihrer **fachlichen Hauptfunktion** in Klassen und Module. Die Programmiersprache zwingt uns, genau *eine* dominante Strukturierungsachse zu wählen. Eine E-Commerce-Anwendung hat dann z.B. Klassen wie `ShoppingCart`, `Customer` und `Invoice` — alle entlang der Geschäftsdomäne.
+In der Theorie (und in jeder guten Vorlesung) lernen wir, Software sauber nach Fachlichkeiten in Klassen zu trennen. Das Problem dabei: Gängige objektorientierte Sprachen zwingen uns dazu, genau eine dominante Strukturierungsachse zu wählen. Bauen wir einen Online-Shop, strukturieren wir alles entlang der Geschäftsdomäne und erstellen Klassen wie `ShoppingCart`, `Customer` und `Invoice`. Das funktioniert für die reine Business-Logik perfekt – führt aber unweigerlich zu Problemen, sobald Crosscutting-Concerns-Funktionen ins Spiel kommen
 
 ### 2.2 Was sind Crosscutting Concerns?
 
-Crosscutting Concerns (Querschnittsfunktionen) sind technische Anforderungen, die sich quer durch das gesamte System ziehen und sich nicht sauber in einer einzigen Klasse kapseln lassen. Typische Beispiele:
-
+Crosscutting Concerns sind technische Anforderungen, die sich quer durch das gesamte System ziehen und sich nicht sauber in einer einzigen Klasse kapseln lassen. Typische Beispiele:
 - **Logging** — Jeder relevante Methodenaufruf soll protokolliert werden.
 - **Sicherheit & Autorisierung** — Prüfen, ob der Nutzer Rechte hat.
 - **Transaktionsmanagement** — Datenbankoperationen sicherstellen.
@@ -200,12 +191,12 @@ Crosscutting Concerns (Querschnittsfunktionen) sind technische Anforderungen, di
 </div>
 
 <div class="callout warning">
-<strong>🔴 Code Tangling (Wirrwarr)</strong>
+<strong> Code Tangling (Wirrwarr)</strong>
 Die eigentliche Geschäftslogik wird durch Infrastruktur-Code überlagert. <em>Konsequenz: Schlechte Lesbarkeit.</em>
 </div>
 
 <div class="callout danger">
-<strong>🔴 Code Scattering (Streuung)</strong>
+<strong> Code Scattering (Streuung)</strong>
 Der Code ist über hunderte Module verstreut. <em>Konsequenz: Enormer Wartungsaufwand.</em>
 </div>
 
@@ -287,7 +278,7 @@ Der Code ist über hunderte Module verstreut. <em>Konsequenz: Enormer Wartungsau
 
 <div class="pro-con">
   <div class="pro">
-    <h4>✅ Vorteile</h4>
+    <h4> Vorteile</h4>
     <ul>
       <li>Saubere Trennung der Belange (SoC)</li>
       <li>Zentrale Verwaltung</li>
@@ -295,7 +286,7 @@ Der Code ist über hunderte Module verstreut. <em>Konsequenz: Enormer Wartungsau
     </ul>
   </div>
   <div class="con">
-    <h4>❌ Nachteile</h4>
+    <h4> Nachteile</h4>
     <ul>
       <li>Erhöhte Komplexität</li>
       <li>Lernkurve für Syntax</li>
@@ -310,8 +301,8 @@ Der Code ist über hunderte Module verstreut. <em>Konsequenz: Enormer Wartungsau
 
 <div class="best-practices">
 <ol>
-  <li><strong>Aspekte sparsam einsetzen:</strong> Nur für echte Querschnittsfunktionen.</li>
-  <li><strong>Pointcuts zentralisieren:</strong> Definitionen zusammenfassen.</li>
-  <li><strong>Umfassend dokumentieren:</strong> Der Einfluss ist oft unsichtbar.</li>
+  <li> Aspekte sparsam einsetzen:</strong> Nur für echte Querschnittsfunktionen.</li>
+  <li> Pointcuts zentralisieren:</strong> Definitionen zusammenfassen.</li>
+  <li> Umfassend dokumentieren:</strong> Der Einfluss ist oft unsichtbar.</li>
 </ol>
 </div>
